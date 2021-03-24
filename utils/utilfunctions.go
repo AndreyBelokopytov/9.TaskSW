@@ -34,6 +34,20 @@ func CalcNumOfRoots() {
 			return
 		}
 
+		// Простое уравнение, не квадратное
+		if v.A == 0 && v.B != 0 && v.C != 0 {
+			v.Nroots = 1
+			v.AlreadyCalculated = true
+			return
+		}
+
+		// Не а как это уравнение без X...
+		if v.A == 0 && v.B == 0 && v.C != 0 {
+			v.Nroots = 0
+			v.AlreadyCalculated = true
+			return
+		}
+
 		// полное квадратное уравнение ax2 + bx + с = 0
 		// D = b*b – 4ac
 		// Если дискриминант D > 0, то уравнение имеет ровно два корня,
